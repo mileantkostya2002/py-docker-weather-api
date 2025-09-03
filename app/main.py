@@ -1,11 +1,12 @@
 import os
 import requests
 
+API_KEY = os.getenv('API_KEY')
+FILTER = 'Paris'
+BASE_URL = 'http://api.weatherapi.com/v1/current.json'
+
 def get_weather() -> None:
-    API_KEY = os.getenv('API_KEY')
-    FILTER = 'Paris'
-    BASE_URL = 'http://api.weatherapi.com/v1/current.json'
-    print(f"API key: {API_KEY}")
+
     if not API_KEY:
         print('API key not found!')
     else:
