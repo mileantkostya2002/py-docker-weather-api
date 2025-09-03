@@ -2,14 +2,14 @@ import os
 import requests
 
 def get_weather() -> None:
-    api_key = os.getenv('API_KEY')
+    API_KEY = os.getenv('API_KEY')
     FILTER = 'Paris'
-    print(f"API key: {api_key}")
-    if not api_key:
+    BASE_URL = 'http://api.weatherapi.com/v1/current.json'
+    print(f"API key: {API_KEY}")
+    if not API_KEY:
         print('API key not found!')
     else:
-        url = 'http://api.weatherapi.com/v1/current.json'
-        result = requests.get(url + f"?key={api_key}&" + f"q={FILTER}")
+        result = requests.get(BASE_URL + f"?key={API_KEY}&" + f"q={FILTER}")
 
         if result.status_code == 200:
             data = result.json()
